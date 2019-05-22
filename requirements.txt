@@ -1,0 +1,8 @@
+-e git+https://github.com/GuiltyTargets/guiltytargets#egg=guiltytargets
+-e git+https://github.com/GuiltyTargets/emig-reimplemented#egg=emig-reimplemented
+-e git+https://github.com/ozlemmuslu/GAT2VEC#egg=GAT2VEC
+ppi-network-annotation
+-e git+https://github.com/phanein/deepwalk#egg=deepwalk
+opentargets
+mygene
+pandas
