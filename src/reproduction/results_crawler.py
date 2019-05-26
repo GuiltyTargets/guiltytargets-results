@@ -33,8 +33,7 @@ def main():
                 _, dataset = os.path.split(parent_folder_path)
 
                 try:
-                    _, graph, dtdb, merge = folder_name.split("-")
-                    lfc_cutoff, conf_cutoff = merge[0:3], merge[3:]
+                    _, graph, dtdb, lfc_cutoff, conf_cutoff = folder_name.split("-")
 
                     line_beginning = "{},{},{},{},{}".format(
                         dataset,

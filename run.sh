@@ -4,7 +4,7 @@ mkdir data/aml
 mkdir data/ipf
 mkdir data/lc
 mkdir data/ms
-mkdir data/aml
+mkdir data/hc
 
 # Download and prepare differential expression data
 R CMD BATCH src/r_scripts/GSE32988.R
@@ -23,4 +23,4 @@ python3.7 src/reproduction/opentargets_downloader.py
 python3.7 src/reproduction/guiltytargets_reproduction.py
 
 # Crawl through the directories and summarize AUC results
-# python3.7 src/reproduction/results_crawler.py
+python3.7 src/reproduction/results_crawler.py

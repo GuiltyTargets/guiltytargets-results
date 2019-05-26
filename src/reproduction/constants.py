@@ -2,7 +2,7 @@ import os
 
 # generic
 data_dir = 'data'
-disease_abr = ['aml', 'hc', 'ipf', 'lc', 'ms']
+disease_abr = ['aml']  # , 'hc', 'ipf', 'lc', 'ms']
 mappings = {
     'h': 'HIPPIE',
     's': 'STRING',
