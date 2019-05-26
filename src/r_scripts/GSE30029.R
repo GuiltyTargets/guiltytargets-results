@@ -1,5 +1,3 @@
-library(affy)
-library(gcrma)
 library(Biobase)
 library(GEOquery)
 library(limma)
