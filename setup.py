@@ -39,6 +39,13 @@ INSTALL_REQUIRES = [
     'python-igraph',
     'click',
     'jinja2',
+    'guiltytargets @ git+https://github.com/GuiltyTargets/guiltytargets.git',
+    'emig-reimplemented @ git+https://github.com/GuiltyTargets/emig-reimplemented.git',
+    'gat2vec @ git+https://github.com/ozlemmuslu/GAT2VEC.git',
+    'deepwalk @ git+https://github.com/phanein/deepwalk.git',
+    'ppi-network-annotation',
+    'opentargets',
+    'mygene',
 ]
 
 EXTRAS_REQUIRE = {
