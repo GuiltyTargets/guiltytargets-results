@@ -23,7 +23,7 @@ To install the required Python libraries, you can run:
 .. code-block:: bash
 
    $ cd reproduction
-   $ pip install requirements.txt
+   $ pip install -r requirements.txt
 
 Running
 =======
