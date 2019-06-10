@@ -5,7 +5,7 @@ specific disease."""
 
 __version__ = '0.0.1-dev'
 
-__title__ = 'reproduction'
+__title__ = 'guiltytargets_results'
 __description__ = 'Reproduction of GuiltyTargets results'
 __url__ = 'https://github.com/GuiltyTargets/reproduction'
 

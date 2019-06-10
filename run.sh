@@ -1,26 +1,17 @@
 #!/bin/bash
 
-mkdir data/aml
-mkdir data/ipf
-mkdir data/lc
-mkdir data/ms
-mkdir data/hc
+mkdir -p data/aml
+mkdir -p data/ipf
+mkdir -p data/lc
+mkdir -p data/ms
+mkdir -p data/hc
 
 # Download and prepare differential expression data
-R CMD BATCH src/r_scripts/GSE32988.R
-R CMD BATCH src/r_scripts/GSE24206.R
-R CMD BATCH src/r_scripts/GSE30029.R
-R CMD BATCH src/r_scripts/GSE36411_dhc.R
-R CMD BATCH src/r_scripts/GSE36411_lc.R
+Rscript R/GSE32988.R
+Rscript R/GSE24206.R
+Rscript R/GSE30029.R
+Rscript R/GSE36411_dhc.R
+Rscript R/GSE36411_lc.R
 
-# Download and prepare PPI networks
-python3.7 src/reproduction/hippie_downloader.py
-
-# Download and prepare targets
-python3.7 src/reproduction/opentargets_downloader.py
-
-# Rerun GuiltyTargets pipeline
-python3.7 src/reproduction/guiltytargets_reproduction.py
-
-# Crawl through the directories and summarize AUC results
-python3.7 src/reproduction/results_crawler.py
+python --version
+python -m guiltytargets_results

@@ -11,7 +11,7 @@ import setuptools
 #################################################################
 
 PACKAGES = setuptools.find_packages(where='src')
-META_PATH = os.path.join('src', '__init__.py')
+META_PATH = os.path.join('src', 'guiltytargets_results', '__init__.py')
 KEYWORDS = ['Gene Prioritization', 'Networks Biology',
             'Drug Target Prioritization']
 CLASSIFIERS = [
@@ -40,9 +40,8 @@ INSTALL_REQUIRES = [
     'click',
     'jinja2',
     'guiltytargets @ git+https://github.com/GuiltyTargets/guiltytargets.git',
-    'emig-reimplemented @ git+https://github.com/GuiltyTargets/emig-reimplemented.git',
-    'gat2vec @ git+https://github.com/ozlemmuslu/GAT2VEC.git',
-    'deepwalk @ git+https://github.com/phanein/deepwalk.git',
+    # 'emig-reimplemented @ git+https://github.com/GuiltyTargets/emig-reimplemented.git',
+    # 'deepwalk @ git+https://github.com/phanein/deepwalk.git',
     'ppi-network-annotation',
     'opentargets',
     'mygene',

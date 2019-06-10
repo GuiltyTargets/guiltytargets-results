@@ -11,19 +11,24 @@ Installation
 ------------
 You will need Python 3.7+ and R 3.6.0+ to run the program.
 
-The required R packages are:
+R Installation
+~~~~~~~~~~~~~~
+Install BioConductor with the instructions from https://www.bioconductor.org/install:
 
-- Bioconductor
-- Biobase
-- GEOquery
-- limma
+.. code-block:: sh
 
+   $ R -e 'install.packages("BiocManager")'
+   $ R -e 'BiocManager::install()'
+   $ R -e 'BiocManager::install(c('limma', 'GEOquery', 'Biobase'))'
+
+Python Installation
+~~~~~~~~~~~~~~~~~~~
 To install the required Python libraries, you can run:
 
 .. code-block:: sh
 
-   $ git clone https://github.com/GuiltyTargets/reproduction.git
-   $ cd reproduction
+   $ git clone https://github.com/GuiltyTargets/reproduction.git guiltytargets-results
+   $ cd guiltytargets-results
    $ pip install -e .
 
 Running

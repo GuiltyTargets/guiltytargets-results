@@ -7,7 +7,10 @@ library(limma)
 
 # load series and platform data from GEO
 
-gset <- getGEO("GSE24206", GSEMatrix =TRUE, AnnotGPL=TRUE)
+geo_accession = "GSE24206"
+print("Running experiment for " + geo_accession)
+
+gset <- getGEO(geo_accession, GSEMatrix =TRUE, AnnotGPL=TRUE)
 if (length(gset) > 1) idx <- grep("GPL570", attr(gset, "names")) else idx <- 1
 gset <- gset[[idx]]
 
