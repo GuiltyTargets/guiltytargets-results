@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdur -p data/
+mkdir -p data/
 mkdir -p data/aml/
 mkdir -p data/ipf/
 mkdir -p data/lc/

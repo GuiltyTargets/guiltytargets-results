@@ -26,15 +26,17 @@ def main(*, data_dir, graph_paths, use_tqdm: bool = True):
     target_paths = [opentargets_file_name]
 
     it = product(
+        DISEASE_ABBREVIATIONS,
         graph_paths,
         target_paths,
         LFC_CUTOFFS,
         CONFIDENCE_CUTOFFS,
-        DISEASE_ABBREVIATIONS,
     )
+    total = len(graph_paths) * len(target_paths) * len(LFC_CUTOFFS) * len(CONFIDENCE_CUTOFFS) * len(
+        DISEASE_ABBREVIATIONS)
     if use_tqdm:
-        it = tqdm(it)
-    for ppi_graph_path, target_path, lfc_cutoff, confidence_cutoff, disease_abbreviation in it:
+        it = tqdm(it, total=total)
+    for disease_abbreviation, ppi_graph_path, target_path, lfc_cutoff, confidence_cutoff in it:
         result_suffix = "h-" if ppi_graph_path.endswith(hippie_name) else "s-"
         result_suffix += "t-" if target_path == ttd_file_name else "o-"
         result_suffix += str(lfc_cutoff)
@@ -44,9 +46,21 @@ def main(*, data_dir, graph_paths, use_tqdm: bool = True):
         confidence_cutoff = confidence_cutoff * 1000 if ppi_graph_path.endswith(string_name) else confidence_cutoff
 
         input_directory = os.path.join(data_dir, disease_abbreviation)
+
         dge_path = os.path.join(input_directory, "DifferentialExpression.tsv")
+        if not os.path.exists(dge_path):
+            it.write(f'Skipping due to missing DGE file: {dge_path}')
+            continue
+
         targets_path = os.path.join(input_directory, target_path)
+        if not os.path.exists(targets_path):
+            it.write(f'Skipping due to missing targets file: {targets_path}')
+            continue
+
         output_path = os.path.join(input_directory, f"Results-{result_suffix}")
+        if os.path.exists(output_path):
+            it.write(f'Skipping because already ran: {output_path}')
+            continue
 
         dataset_name = "g2v"
         gat2vec_home = os.path.join(output_path, dataset_name)
@@ -56,14 +70,11 @@ def main(*, data_dir, graph_paths, use_tqdm: bool = True):
         os.makedirs(output_path, exist_ok=True)
         os.makedirs(gat2vec_home, exist_ok=True)
 
-        print(
-            input_directory,
-            targets_path,
-            ppi_graph_path,
-            dge_path,
-            auc_output_path,
-            probs_output_path,
-        )
+        it.write(f"""Working on:
+  input:  {input_directory}
+  target: {targets_path}
+  dge:    {dge_path}
+  graph:  {ppi_graph_path}""")
 
         run(
             input_directory,
