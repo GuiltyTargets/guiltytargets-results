@@ -1,7 +1,10 @@
 GuiltyTargets Results
 =====================
-This section reproduces the output of `GuiltyTargets paper
-<https://www.biorxiv.org/content/10.1101/521161v1>`_
+This repository contains the results of [1]_:
+
+.. [1] Muslu, Ö., Hoyt, C. T., Hofmann-Apitius, M., & Fröhlich, H. (2019). `GuiltyTargets: Prioritization of Novel
+       Therapeutic Targets with Deep Network Representation Learning <https://doi.org/10.1101/521161>`_. *bioRxiv*,
+       1–14.
 
 Due to licensing reasons, analyses that use TTD drug targets and
 Alzheimer's disease data sets have been removed from this
