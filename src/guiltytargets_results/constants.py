@@ -2,11 +2,6 @@
 
 """CLI for GuiltyTargets results."""
 
-import os
-
-# generic
-data_dir = 'data'
-
 mappings = {
     'h': 'HIPPIE',
     's': 'STRING',
@@ -14,7 +9,7 @@ mappings = {
     'o': 'Open Targets',
 }
 
-disease_abbreviations = [
+DISEASE_ABBREVIATIONS = [
     'aml',  # acute myeloid leukemia
     'hc',  # hepatocellular carcinoma
     'ipf',  # idiopathic pulmonary fibrosis
@@ -30,7 +25,7 @@ disease_efo_ids = [
     'EFO_0003885',  # multiple sclerosis
 ]
 ttd_file_name = 'ttd_entrez.txt'
-opentargets_file_name = 'ot_entrez.txt'
+opentargets_file_name = 'ot_entrez.tsv'
 
 # for ppi graphs
 hippie_url = 'http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/hippie_current.txt'

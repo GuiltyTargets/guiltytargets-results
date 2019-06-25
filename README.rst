@@ -1,5 +1,5 @@
-Reproduction
-============
+GuiltyTargets Results
+=====================
 This section reproduces the output of `GuiltyTargets paper
 <https://www.biorxiv.org/content/10.1101/521161v1>`_
 
@@ -13,13 +13,19 @@ You will need Python 3.7+ and R 3.6.0+ to run the program.
 
 R Installation
 ~~~~~~~~~~~~~~
+On mac, install the latest version of R with:
+
+.. code-block:: sh
+
+   $ brew install R
+
 Install BioConductor with the instructions from https://www.bioconductor.org/install:
 
 .. code-block:: sh
 
    $ R -e 'install.packages("BiocManager")'
    $ R -e 'BiocManager::install()'
-   $ R -e 'BiocManager::install(c('limma', 'GEOquery', 'Biobase'))'
+   $ R -e 'BiocManager::install(c("limma", "GEOquery", "Biobase"))'
 
 Python Installation
 ~~~~~~~~~~~~~~~~~~~

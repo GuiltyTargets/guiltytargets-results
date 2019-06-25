@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 from typing import Optional, TextIO
 
@@ -29,12 +31,12 @@ _MAIN_HEADER = [
 ]
 
 
-def crawl_results(*, data_dir, file: Optional[TextIO] = None) -> None:
+def crawl_results(*, directory, file: Optional[TextIO] = None) -> None:
     print(*_MAIN_HEADER, sep=',', file=file)
 
     result_folders = (
         result_folder
-        for folder in get_folders(data_dir)
+        for folder in get_folders(directory)
         for result_folder in get_folders(folder)
     )
 
@@ -48,20 +50,23 @@ def crawl_results(*, data_dir, file: Optional[TextIO] = None) -> None:
             print(f'Issue with folder name: {folder_name}')
             continue
 
-        prefix = "{},{},{},{},{}".format(
-            dataset,
-            mappings[graph],
-            mappings[dtdb],
-            lfc_cutoff,
-            conf_cutoff
-        )
-
         gat2vec_auc_path = os.path.join(result_folder, "auc.tsv")
-        try:
-            auc_values = pd.read_csv(gat2vec_auc_path, sep="\t")["auc"].values.tolist()
-        except Exception:
-            print("No GuiltyTargets results in: ", result_folder)
+        if not os.path.exists(gat2vec_auc_path):
+            print(f"No GuiltyTargets results in: {result_folder}")
             continue
 
-        for auc in auc_values:
-            print(prefix, 'GuiltyTargets', auc, sep=',', file=file)
+        aucs_df = pd.read_csv(gat2vec_auc_path, sep="\t")
+        aucs = aucs_df["auc"].values.tolist()
+
+        for auc in aucs:
+            print(
+                dataset,
+                mappings[graph],
+                mappings[dtdb],
+                lfc_cutoff,
+                conf_cutoff,
+                'GuiltyTargets',
+                auc,
+                sep=',',
+                file=file,
+            )
