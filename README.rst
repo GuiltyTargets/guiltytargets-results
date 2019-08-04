@@ -1,42 +1,54 @@
-Reproduction
-============
+GuiltyTargets Results
+=====================
+This repository contains the results of [1]_:
 
-This section reproduces the output of [GuiltyTargets paper](https://www.biorxiv.org/content/10
-.1101/521161v1).
+.. [1] Muslu, Ö., Hoyt, C. T., Hofmann-Apitius, M., & Fröhlich, H. (2019). `GuiltyTargets: Prioritization of Novel
+       Therapeutic Targets with Deep Network Representation Learning <https://doi.org/10.1101/521161>`_. *bioRxiv*,
+       1–14.
 
-Due to licencing reasons, analyses that use TTD drug targets and Alzheimer's disease data sets
-are removed from this reproduction.
+Due to licensing reasons, analyses that use TTD drug targets and
+Alzheimer's disease data sets have been removed from this
+reproduction.
 
-Requirements
-============
-
+Installation
+------------
 You will need Python 3.7+ and R 3.6.0+ to run the program.
 
-Required R packages are:
-Bioconductor
-Biobase
-GEOquery
-limma
+R Installation
+~~~~~~~~~~~~~~
+On mac, install the latest version of R with:
 
+.. code-block:: sh
+
+   $ brew install R
+
+Install BioConductor with the instructions from https://www.bioconductor.org/install:
+
+.. code-block:: sh
+
+   $ R -e 'install.packages("BiocManager")'
+   $ R -e 'BiocManager::install()'
+   $ R -e 'BiocManager::install(c("limma", "GEOquery", "Biobase"))'
+
+Python Installation
+~~~~~~~~~~~~~~~~~~~
 To install the required Python libraries, you can run:
 
-.. code-block:: bash
+.. code-block:: sh
 
-   $ cd reproduction
-   $ pip install requirements.txt
+   $ git clone https://github.com/GuiltyTargets/reproduction.git guiltytargets-results
+   $ cd guiltytargets-results
+   $ pip install -e .
 
 Running
-=======
-
+-------
 To run the code:
 
-.. code-block:: bash
+.. code-block:: sh
 
-   $ chmod +x run.sh
-   $ ./run.sh
+   $ source run.sh
 
 Output
-======
-
-You can find the output under reproduction/data
-results.csv file gives an overview of all AUROC values under different settings.
+------
+You can find the output under reproduction/data. The ``results.csv``
+file gives an overview of all AUROC values under different settings.

@@ -11,7 +11,7 @@ import setuptools
 #################################################################
 
 PACKAGES = setuptools.find_packages(where='src')
-META_PATH = os.path.join('src', '__init__.py')
+META_PATH = os.path.join('src', 'guiltytargets_results', '__init__.py')
 KEYWORDS = ['Gene Prioritization', 'Networks Biology',
             'Drug Target Prioritization']
 CLASSIFIERS = [
@@ -22,9 +22,8 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT Software License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 3.4',
-    'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
     'Topic :: Scientific/Engineering :: Bio-Informatics'
 ]
 INSTALL_REQUIRES = [
@@ -39,6 +38,11 @@ INSTALL_REQUIRES = [
     'python-igraph',
     'click',
     'jinja2',
+    'guiltytargets @ git+https://github.com/GuiltyTargets/guiltytargets.git',
+    # 'emig-reimplemented @ git+https://github.com/GuiltyTargets/emig-reimplemented.git',
+    # 'deepwalk @ git+https://github.com/phanein/deepwalk.git',
+    'opentargets',
+    'mygene',
 ]
 
 EXTRAS_REQUIRE = {
